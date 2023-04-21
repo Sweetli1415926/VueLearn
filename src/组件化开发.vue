@@ -1,7 +1,7 @@
 <script lang="ts">
 import content from './components/Content.vue'
 import FatherToSon from './components/父组件向子组件传值.vue'
-import SonFather from './components/子组件向父组件传值.vue'
+import SonToFather from './components/子组件向父组件传值.vue'
 export default {
     data() {
         return {
@@ -16,7 +16,11 @@ export default {
     components: {
         content,
         FatherToSon,
-        SonFather,
+        SonToFather,
+    },
+    mounted(){
+        console.log(this.$refs)
+        console.log(this.$refs.msg)
     }
 };
 </script>
@@ -30,4 +34,11 @@ export default {
     <FatherToSon :msg='msg' NoBind='NoBind'></FatherToSon>
 
     <SonFather @injectMsg="getChildMsg"></SonFather>
+    
+
+    <!-- 父组件访问子组件:$refs -->
+    <SonToFather ref="SonToFather"> </SonToFather>
+    
+    <!-- 子组件访问父组件:$parent -->
+    <!-- 子组件访问根组件:$root -->
 </template> 

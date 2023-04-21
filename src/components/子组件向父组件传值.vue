@@ -12,7 +12,14 @@ export default {
             //2.要传递的信息
             this.$emit("injectMsg", this.msg);
         }
-    }
+    },
+
+    // 子组件访问父组件:$parent 尽量少用
+    // 子组件访问根组件:$root
+    mounted() {
+        console.log(this.$parent)
+        console.log(this.$root)
+    },
 }
 </script>
 <template>
