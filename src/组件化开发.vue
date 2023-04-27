@@ -1,5 +1,6 @@
 <script lang="ts">
 import content from './components/Content.vue'
+import Zuhe from './组合式API.vue'
 import FatherToSon from './components/父组件向子组件传值.vue'
 import SonToFather from './components/子组件向父组件传值.vue'
 export default {
@@ -17,10 +18,12 @@ export default {
         content,
         FatherToSon,
         SonToFather,
+        Zuhe,
     },
     mounted(){
         console.log(this.$refs)
         console.log(this.$refs.msg)
+        console.log(this.$refs.content)
     }
 };
 </script>
@@ -41,4 +44,8 @@ export default {
     
     <!-- 子组件访问父组件:$parent -->
     <!-- 子组件访问根组件:$root -->
+
+    <Zuhe class="box" ref="content"></Zuhe>
+
+
 </template> 
